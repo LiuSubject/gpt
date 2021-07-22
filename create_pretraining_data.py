@@ -19,7 +19,7 @@ import json
 import multiprocessing
 
 import numpy as np
-from paddlenlp.transformers import GPTTokenizer
+from paddlenlp.transformers import GPTChineseTokenizer
 from tqdm import tqdm
 
 
@@ -45,7 +45,7 @@ def get_args():
 class Converter(object):
     def __init__(self, model_name, append_eos):
         self.append_eos = append_eos
-        self.tokenizer = GPTTokenizer.from_pretrained(model_name)
+        self.tokenizer = GPTChineseTokenizer.from_pretrained(model_name)
         self.eos_id = self.tokenizer.eos_token_id
         self.vocab_size = len(self.tokenizer)
 
